@@ -64,7 +64,7 @@ function searchFundraisers() {
                                 <p class="card-text"><strong>Status:</strong> Active</p>
                             </div>
                             <div class="card-footer text-center">
-                                <small class="text-muted">Click to make a donation</small>
+                                <small class="text-muted"><b>Click here to make a Donation</b></small>
                             </div>
                         </div>
                     </a>

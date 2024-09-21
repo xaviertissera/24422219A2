@@ -3,3 +3,19 @@
 .ftco-section-3 {
     padding: 2em 0;
 }
+
+select.form-select {
+    height: 58px;
+    padding: 6px 12px;
+    font-size: 16px;
+    border-radius: 4px; 
+    border: 1px solid #ced4da;
+    appearance: none;
+    background-color: white;
+}
+
+select.form-select:focus {
+    border-color: #80bdff; /* Highlight on focus */
+    outline: 0;
+    box-shadow: 0 0 5px rgba(128, 189, 255, 0.5); /* Add a focus shadow */
+}
