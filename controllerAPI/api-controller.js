@@ -42,4 +42,29 @@ router.get('/categories', (req, res) => {
     });
 });
 
+// Search fundraisers based on criteria
+router.get('/search-fundraisers', (req, res) => {
+    const { organizer, city, category } = req.query;
+    let query = `
+        SELECT f.FUNDRAISER_ID, f.ORGANIZER, f.CAPTION, f.CITY, c.NAME as CATEGORY
+        FROM fundraiser f
+        JOIN category c ON f.CATEGORY_ID = c.CATEGORY_ID
+        WHERE f.ACTIVE = 1
+    `;
+
+    // Add filters based on selected criteria
+    if (organizer) query += ` AND f.ORGANIZER LIKE '%${organizer}%'`;
+    if (city) query += ` AND f.CITY LIKE '%${city}%'`;
+    if (category) query += ` AND f.CATEGORY_ID = ${category}`;
+
+    connection.query(query, (err, rows) => {
+        if (err) {
+            console.error("Error while performing query:", err);
+            res.status(500).send("Error while performing query.");
+        } else {
+            res.json(rows);
+        }
+    });
+});
+
 module.exports = router;
