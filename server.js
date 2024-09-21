@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 });
 
 // Start the server on port 3061
-const PORT = 3061;
+const PORT = 3062;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
